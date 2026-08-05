@@ -28,36 +28,7 @@ HoldYourCamera/
             └── en_us.json             英文界面文本
 ```
 
-## 二、合入你的 MDK（3 步）
-
-1. **复制源码**：把 `src/` 合进 MDK 工程（删掉 MDK 自带的 `com.example.examplemod`）。
-2. **改 `gradle.properties`**（其余行保持 MDK 原样）：
-
-   ```properties
-   mod_id=holdyourcamera
-   mod_name=HoldYourCamera
-   mod_license=MIT
-   mod_version=1.0.0
-   mod_group_id=com.kimik3znttey.holdyourcamera
-   mod_authors=你的名字
-   mod_description=手持物品自动切换视角，规则可视化配置的客户端小工具
-   ```
-
-3. **构建**：`./gradlew build`，成品在 `build/libs/`（不带 `-sources` 的 jar）。
-
-## 三、改名跑不起来？自查表（按嫌疑度排序）
-
-改包名/modid 后跑不起来，九成是下面之一：
-
-1. **包名以 `java.` 开头** —— 这是最常见的坑！`java.*` 是 JVM 保留包名，类加载器会直接抛 `SecurityException: Prohibited package name`。`src/main/java/` 里的 `java` 只是源码根目录，**不属于包名**。正确：`com.kimik3znttey.holdyourcamera`。
-2. **modid 四处不一致**：`@Mod("holdyourcamera")`、`@Mod.EventBusSubscriber(modid = ...)`、`mods.toml` 的 `modId`、`gradle.properties` 的 `mod_id`，四个地方必须一字不差。
-3. **package 声明与目录不一致**：每个 `.java` 第一行的 `package` 必须和它在 `java/` 下的相对路径完全对应。
-4. **`mods.toml` 位置不对**：必须在 `src/main/resources/META-INF/` 下，不是 `resources/` 根目录。
-5. **`pack.mcmeta` 缺失或 `pack_format` 不对**：1.20.1 用 `15`。
-6. **构建缓存**：改完结构后跑一次 `./gradlew clean`，IDE 里重新 import Gradle 工程。
-7. **看报错**：`run/logs/latest.log` 第一处 ERROR 通常直接点名问题（找不到 mods.toml、modid 重复、类加载失败等）。
-
-## 四、玩家怎么用（易用性设计）
+## 二、玩家怎么用（易用性设计）
 
 | 操作 | 效果 |
 | --- | --- |
@@ -73,17 +44,34 @@ HoldYourCamera/
 - 手持时仍可 F5 手动覆盖（开了"强制锁定"才会每 tick 锁死）
 - 规则按列表顺序匹配，第一条命中的生效
 
-## 五、发布 Checklist
+# HoldYourCamera — Store Page (English)
 
-- [ ] 仓库放 `LICENSE` 文件（与 `mod_license` 一致）
-- [ ] `mods.toml` 填 `issueTrackerURL`
-- [ ] CurseForge / Modrinth 页面勾选 **Client-side only**
-- [ ] 介绍页第一句写卖点："拿在手里按 J，点一下就配好"
-- [ ] 装/不装拔刀剑两个环境各冒烟一次；NeoForge 1.20.1 也试一次（大概率直接能跑）
+> Paste-ready for CurseForge / Modrinth. Suggested summary line first, then the long description.
 
-## 六、V3 点子
+## Summary (short, one-liner)
 
-- 可搜索的物品浏览器（给"物品不在手上"的场景）
-- 规则上下移动排序（优先级调整）
-- 每条规则独立的相机偏移 / 距离
-- 平滑运镜过渡
+Hold an item, press J, pick a camera — per-item perspective rules with zero config-file knowledge required.
+
+## Description (long)
+
+**HoldYourCamera** is a tiny client-side QoL mod that switches your camera perspective automatically based on what you're holding. First person for pickaxes, third-person-back for swords, third-person-front for showing off your skin — set it once, and it just works every time you swap items.
+
+### Point-and-click rules — no IDs, no TOML
+
+- **Hold any item and press J**: an editor pops up with the item's icon rendered right there. Pick a scope — *this item only* or *the whole mod* — pick one of three perspectives (first person / third person back / third person front), save, done.
+- **Empty-hand J** (or the **Config** button in Forge's mod list) opens the rule manager: global toggles, edit entries, and deletion (inside each rule's edit page).
+- Rules are matched top-to-bottom; first match wins.
+
+### Sensible defaults
+
+- When a rule matches, your camera switches; when it stops matching, your **previous perspective is restored** automatically (it remembers what you had before taking over).
+- You can still override manually with F5 at any time — unless you enable the global **lock** toggle, which holds the perspective every tick while a rule matches.
+- Everything is client-side and per-player: rules live in `config/holdyourcamera-client.toml`, hot-reloaded on save if you prefer hand-editing.
+
+### Requirements
+
+- Minecraft 1.20.1, Forge (expected to run on NeoForge 1.20.1 47.1.x)
+- **Client-side only** — safe to use on any server; nothing is sent, nothing is required server-side.
+
+Open source under MIT. Issues and PRs welcome on GitHub.
+
