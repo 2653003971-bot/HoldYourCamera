@@ -1,7 +1,7 @@
 # HoldYourCamera —— 按主手物品自动切换视角（Forge 1.20.1 客户端模组）
 
 手持指定物品时自动切换视角，**规则全程可视化点选**：把物品拿在手里按 `J`，在默认的三个视角中选取一个，无需手动输入nbt标签或矫正语法格式。
-
+本模组由作者与 **Kimi K3（Moonshot AI）** 结对设计并开发：需求讨论、代码实现与调试中均有 AI 参与。
 ---
 
 ## 一、项目结构
@@ -46,7 +46,7 @@ HoldYourCamera/
 
 # HoldYourCamera — Store Page (English)
 
-> Paste-ready for CurseForge / Modrinth. Suggested summary line first, then the long description.
+*Developed in pair with Kimi K3 (Moonshot AI).*
 
 ## Summary (short, one-liner)
 
