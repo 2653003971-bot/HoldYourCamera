@@ -1,0 +1,21 @@
+{
+    "key.categories.holdyourcamera": "HoldYourCamera",
+    "key.holdyourcamera.add_rule": "添加手持物品的视角规则",
+    "holdyourcamera.screen.rules.title": "视角规则",
+    "holdyourcamera.screen.edit.title.add": "添加规则",
+    "holdyourcamera.screen.edit.title.edit": "编辑规则",
+    "holdyourcamera.restore": "规则失效后恢复原视角",
+    "holdyourcamera.enforce": "命中期间强制锁定视角",
+    "holdyourcamera.add_held": "添加手持物品",
+    "holdyourcamera.empty": "还没有规则 ~ 把物品拿在手里按 J 试试",
+    "holdyourcamera.edit": "编辑",
+    "holdyourcamera.delete": "删除",
+    "holdyourcamera.save": "保存",
+    "holdyourcamera.scope": "作用范围",
+    "holdyourcamera.scope.item": "仅此物品",
+    "holdyourcamera.scope.mod": "整个模组",
+    "holdyourcamera.perspective": "视角",
+    "holdyourcamera.perspective.first_person": "第一人称",
+    "holdyourcamera.perspective.third_person_back": "第三人称·背面",
+    "holdyourcamera.perspective.third_person_front": "第三人称·正面"
+}

@@ -1,0 +1,21 @@
+{
+    "key.categories.holdyourcamera": "HoldYourCamera",
+    "key.holdyourcamera.add_rule": "Add camera rule for held item",
+    "holdyourcamera.screen.rules.title": "Camera Rules",
+    "holdyourcamera.screen.edit.title.add": "Add Rule",
+    "holdyourcamera.screen.edit.title.edit": "Edit Rule",
+    "holdyourcamera.restore": "Restore previous perspective",
+    "holdyourcamera.enforce": "Lock perspective while rule matches",
+    "holdyourcamera.add_held": "Add Held Item",
+    "holdyourcamera.empty": "No rules yet ~ hold an item and press J!",
+    "holdyourcamera.edit": "Edit",
+    "holdyourcamera.delete": "Delete",
+    "holdyourcamera.save": "Save",
+    "holdyourcamera.scope": "Applies to",
+    "holdyourcamera.scope.item": "This item only",
+    "holdyourcamera.scope.mod": "Whole mod",
+    "holdyourcamera.perspective": "Perspective",
+    "holdyourcamera.perspective.first_person": "First Person",
+    "holdyourcamera.perspective.third_person_back": "Third Person (Back)",
+    "holdyourcamera.perspective.third_person_front": "Third Person (Front)"
+}
